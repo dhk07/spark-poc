@@ -1,15 +1,14 @@
 package com.spark.poc.service.practice;
 
 import com.spark.poc.service.config.Utils;
-import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 
 public class RDDExample {
@@ -19,24 +18,36 @@ public class RDDExample {
         try{
             jsc = Utils.getSparkConfig();
 //            sumOfList(jsc);
-            logWithPairRdd(jsc);
-
+//            logWithPairRdd(jsc);
+            calculateSquareRoot(jsc);
         }catch (Exception e){
             e.printStackTrace();
         }
         finally {
+
             assert jsc != null;
             jsc.close();
         }
+    }
 
+    private static void calculateSquareRoot(JavaSparkContext jsc) {
 
+        List<Integer> inputData = Arrays.asList(23,46,12,67,90);
+        JavaRDD<Integer> javaRdd = jsc.parallelize(inputData);
+        JavaRDD<Double> sqrt = javaRdd.map(value -> Math.sqrt(value));
+        sqrt.foreach(value -> System.out.println(value));
 
+        JavaRDD<Long> map = sqrt.map(value -> 1l);
+        System.out.println("Map --------------> ");
+        map.foreach(value -> System.out.println(value));
+        Long count = map.reduce((value1, value2) -> value1+value2);
+        System.out.println("Count : "+count);
     }
 
     private static void sumOfList(JavaSparkContext jsc){
         List<Integer> inputData = Arrays.asList(23,46,12,67,90);
         JavaRDD<Integer> javaRdd = jsc.parallelize(inputData);
-        Integer result = javaRdd.reduce(Integer::sum);
+        Integer result = javaRdd.reduce((value1, value2) -> value1+value2);
         System.out.println("Result: "+result);
     }
 
