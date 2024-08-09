@@ -1,8 +1,10 @@
 package com.spark.poc.service.practice;
 
 import com.spark.poc.service.config.Utils;
+import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import scala.Tuple2;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,7 +21,8 @@ public class RDDExample {
             jsc = Utils.getSparkConfig();
 //            sumOfList(jsc);
 //            logWithPairRdd(jsc);
-            calculateSquareRoot(jsc);
+            pairRddReduceByKey(jsc);
+//            calculateSquareRoot(jsc);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -28,6 +31,30 @@ public class RDDExample {
             assert jsc != null;
             jsc.close();
         }
+    }
+
+    private static void pairRddReduceByKey(JavaSparkContext jsc) {
+        List<String> inputData = new ArrayList<>();
+        inputData.add( "WARN: Tuesday 4 September 0405");
+        inputData.add("WARN: Tuesday 5 September 0408");
+        inputData.add("ERROR: Wednesday 5 September 0409");
+        inputData.add("ERROR: Wednesday 12 September 4509");
+        inputData.add("WARN: Tuesday 6 September 0430");
+        inputData.add("FATAL: Tuesday 7 September 0429");
+
+        JavaRDD<String> javaRDD= jsc.parallelize(inputData);
+        JavaPairRDD<String, Integer> pairRDD = javaRDD.mapToPair(rawValue -> {
+           String[] values = rawValue.split(":");
+           String level = values[0];
+
+           return new Tuple2<>(level, 1);
+        });
+        JavaPairRDD<String, Integer> logCount = pairRDD.reduceByKey((value1, value2) -> value1+value2);
+        logCount.foreach(tuple -> System.out.println(tuple._1+" --->  "+tuple._2));
+
+
+        // add below command to the vm option if get error - Unable to make field private final byte[]
+        // --add-opens java.base/java.lang=ALL-UNNAMED
     }
 
     private static void calculateSquareRoot(JavaSparkContext jsc) {
