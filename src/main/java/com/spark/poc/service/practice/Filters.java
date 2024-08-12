@@ -13,6 +13,7 @@ public class Filters {
     public static void main(String[] args) {
         JavaSparkContext jsc = Utils.getSparkConfig();
         filterExample(jsc);
+        jsc.close();
     }
     private static void filterExample(JavaSparkContext jsc){
         List<String> inputData = new ArrayList<>();

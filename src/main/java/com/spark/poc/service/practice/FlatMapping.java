@@ -13,6 +13,7 @@ public class FlatMapping {
     public static void main(String[] arg){
         JavaSparkContext jsc = Utils.getSparkConfig();
         flatMappingExample(jsc);
+        jsc.close();
     }
     private static void flatMappingExample(JavaSparkContext jsc){
         List<String> inputData = new ArrayList<>();

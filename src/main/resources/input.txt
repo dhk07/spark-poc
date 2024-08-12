@@ -1,0 +1,5 @@
+WARN: Tuesday 4 September 0405
+WARN: Tuesday 5 September 0408
+ERROR: Wednesday 5 September 0409
+WARN: Tuesday 6 September 0430
+FATAL: Tuesday 7 September 0429
