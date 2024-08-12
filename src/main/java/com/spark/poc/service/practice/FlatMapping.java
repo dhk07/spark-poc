@@ -26,5 +26,9 @@ public class FlatMapping {
         JavaRDD<String> javaRDD= jsc.parallelize(inputData);
         JavaRDD<String> words = javaRDD.flatMap(value -> Arrays.asList(value.split(" ")).iterator());
         words.foreach(value -> System.out.println(value));
+
+
+        // add below command to the vm option if get error
+        //--add-exports java.base/sun.nio.ch=ALL-UNNAMED
     }
 }

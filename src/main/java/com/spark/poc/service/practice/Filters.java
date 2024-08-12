@@ -27,5 +27,8 @@ public class Filters {
                 .flatMap(value -> Arrays.asList(value.split(" ")).iterator())
                 .filter(word -> word.length()>1)
                 .foreach(value -> System.out.println(value));
+
+        // add below command to the vm option if get error
+        //--add-exports java.base/sun.nio.ch=ALL-UNNAMED
     }
 }

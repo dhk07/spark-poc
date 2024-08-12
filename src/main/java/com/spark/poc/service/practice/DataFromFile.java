@@ -19,5 +19,8 @@ public class DataFromFile {
         dataFromFile.flatMap(value -> Arrays.asList(value.split(" ")).iterator())
                 .foreach(value -> System.out.println(value));
 
+        // add below command to the vm option if get error
+        //--add-exports java.base/sun.nio.ch=ALL-UNNAMED
+
     }
 }

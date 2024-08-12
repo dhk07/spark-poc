@@ -21,5 +21,8 @@ public class Tuples {
         JavaRDD<Tuple2<Integer, Double>> squareRoot = javaRDD.map(value -> new Tuple2(value, Math.sqrt(value)));
 
         squareRoot.foreach(value -> System.out.println(value));
+
+        // add below command to the vm option if get error
+        //--add-exports java.base/sun.nio.ch=ALL-UNNAMED
     }
 }

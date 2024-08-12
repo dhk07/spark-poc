@@ -25,7 +25,6 @@ public class RDDExample {
             e.printStackTrace();
         }
         finally {
-
             assert jsc != null;
             jsc.close();
         }
@@ -52,7 +51,7 @@ public class RDDExample {
 
 
         // add below command to the vm option if get error - Unable to make field private final byte[]
-        // --add-opens java.base/java.lang=ALL-UNNAMED
+        //--add-exports java.base/sun.nio.ch=ALL-UNNAMED
     }
 
     private static void calculateSquareRoot(JavaSparkContext jsc) {

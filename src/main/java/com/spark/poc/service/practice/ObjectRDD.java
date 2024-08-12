@@ -19,5 +19,8 @@ public class ObjectRDD {
         JavaRDD<Integer> javaRDD = jsc.parallelize(numbers);
         JavaRDD<SquareNumber> square = javaRDD.map(value -> new SquareNumber(value));
         square.foreach(value -> System.out.println(value.toString()));
+
+        // add below command to the vm option if get error -
+        //--add-exports java.base/sun.nio.ch=ALL-UNNAMED
     }
 }
