@@ -1,6 +1,5 @@
 package com.spark.poc.service.practice;
 
-import com.google.common.collect.Iterables;
 import com.spark.poc.service.config.Utils;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
@@ -8,7 +7,6 @@ import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple2;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 
 public class RDDExample {
@@ -30,7 +28,7 @@ public class RDDExample {
         }
     }
 
-    private static void pairRddReduceByKey(JavaSparkContext jsc) {
+    static void pairRddReduceByKey(JavaSparkContext jsc) {
         List<String> inputData = new ArrayList<>();
         inputData.add( "WARN: Tuesday 4 September 0405");
         inputData.add("WARN: Tuesday 5 September 0408");

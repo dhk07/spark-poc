@@ -1,5 +1,23 @@
 WARN: Tuesday 4 September 0405
+
 WARN: Tuesday 5 September 0408
 ERROR: Wednesday 5 September 0409
 WARN: Tuesday 6 September 0430
+
 FATAL: Tuesday 7 September 0429
+ERROR: Wednesday 5 September 0409
+WARN: Tuesday 6 September 0430
+
+FATAL: Tuesday 7 September 0429
+ERROR: Wednesday 5 September 0409
+WARN: Tuesday 6 September 0430
+
+FATAL: Tuesday 7 September 0429
+ERROR: Wednesday 8 September 0409
+WARN: Tuesday 9 September 0430
+
+FATAL: Tuesday 12 September 0429
+ERROR: Wednesday 15 September 0409
+WARN: Tuesday 11 September 0430
+
+FATAL: Tuesday 23 September 0429
