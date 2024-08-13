@@ -9,7 +9,8 @@ public class Utils {
 
 
     public static JavaSparkContext getSparkConfig(){
-//        System.setProperty("hadoop.home.dir", "C:\\Users\\dhiru\\Documents\\hadoop");
+        System.setProperty("hadoop.home.dir", "C:\\Users\\dhiru\\Documents\\hadoop");
+
         SparkConf conf = new SparkConf().setAppName("Starting spark").setMaster("local[*]");
         JavaSparkContext jsc = new JavaSparkContext(conf);
         Logger.getLogger("org.apache").setLevel(Level.WARNING);

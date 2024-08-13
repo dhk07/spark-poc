@@ -4,29 +4,30 @@ import com.spark.poc.service.config.Utils;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import org.springframework.stereotype.Service;
 import scala.Tuple2;
 
 import java.util.*;
 
-
+@Service
 public class RDDExample {
 
-    public static void main(String[] args) {
-        JavaSparkContext jsc = null;
-        try{
-            jsc = Utils.getSparkConfig();
-//            sumOfList(jsc);
-//            logWithPairRdd(jsc);
-            pairRddReduceByKey(jsc);
-//            calculateSquareRoot(jsc);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        finally {
-            assert jsc != null;
-            jsc.close();
-        }
-    }
+//    public static void main(String[] args) {
+//        JavaSparkContext jsc = null;
+//        try{
+//            jsc = Utils.getSparkConfig();
+////            sumOfList(jsc);
+////            logWithPairRdd(jsc);
+//            pairRddReduceByKey(jsc);
+////            calculateSquareRoot(jsc);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//        finally {
+//            assert jsc != null;
+//            jsc.close();
+//        }
+//    }
 
     static void pairRddReduceByKey(JavaSparkContext jsc) {
         List<String> inputData = new ArrayList<>();
@@ -66,7 +67,8 @@ public class RDDExample {
         System.out.println("Count : "+count);
     }
 
-    private static void sumOfList(JavaSparkContext jsc){
+    public void sumOfList(){
+        JavaSparkContext jsc = Utils.getSparkConfig();
         List<Integer> inputData = Arrays.asList(23,46,12,67,90);
         JavaRDD<Integer> javaRdd = jsc.parallelize(inputData);
         Integer result = javaRdd.reduce((value1, value2) -> value1+value2);
