@@ -1,0 +1,11 @@
+s.no,roll_no,subject,marks,grade,quarter,year
+1,1001,Math,89,A,3,2020
+2,1001,English,43,C,3,2020
+3,1001,Hindi,65,B,3,2020
+4,1001,Science,38,D,3,2020
+5,1001,Social Science,75,B,3,2020
+6,1002,Math,56,C,3,2020
+7,1002,English,73,B,3,2020
+8,1002,Hindi,61,B,3,2020
+9,1002,Science,88,A,3,2020
+10,1002,Social Science,92,A,3,2020
