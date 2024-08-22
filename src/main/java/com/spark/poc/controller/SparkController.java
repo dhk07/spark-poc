@@ -1,17 +1,12 @@
-package com.spark.poc.service.controller;
+package com.spark.poc.controller;
 
-import com.spark.poc.service.config.Utils;
-import com.spark.poc.service.practice.RDDExample;
-import org.eclipse.jetty.websocket.api.StatusCode;
+import com.spark.poc.practice.basics.RDDExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.net.ssl.SSLEngineResult;
 
 @RestController
 @RequestMapping("/spark")

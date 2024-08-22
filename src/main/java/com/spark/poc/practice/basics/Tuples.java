@@ -1,10 +1,9 @@
-package com.spark.poc.service.practice;
+package com.spark.poc.practice.basics;
 
-import com.spark.poc.service.config.Utils;
+import com.spark.poc.config.Utils;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
-import org.apache.spark.sql.sources.In;
 import scala.Tuple2;
 
 import java.util.Arrays;

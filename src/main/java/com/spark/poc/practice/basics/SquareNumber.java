@@ -1,4 +1,4 @@
-package com.spark.poc.service.practice;
+package com.spark.poc.practice.basics;
 
 
 public class SquareNumber {

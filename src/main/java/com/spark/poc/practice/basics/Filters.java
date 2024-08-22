@@ -1,7 +1,6 @@
-package com.spark.poc.service.practice;
+package com.spark.poc.practice.basics;
 
-import com.spark.poc.service.config.Utils;
-import org.apache.spark.api.java.JavaRDD;
+import com.spark.poc.config.Utils;
 import org.apache.spark.api.java.JavaSparkContext;
 
 import java.util.ArrayList;

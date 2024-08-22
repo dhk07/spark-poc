@@ -1,4 +1,4 @@
-package com.spark.poc.service;
+package com.spark.poc;
 
 
 import org.springframework.boot.SpringApplication;
